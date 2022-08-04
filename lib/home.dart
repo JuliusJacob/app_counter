@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counterProvider = Provider.of<Counter>(context);
+    final counterProvider = Provider.of<Counter>(context,listen: false);
     final accountProvider = Provider.of<AuthProvider>(context);
     return Scaffold(
       appBar: AppBar(
@@ -31,12 +31,15 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+             Text(
+              'You have pushed the button this many times: ${counterProvider.counter}'
             ),
-            Text(
-              '${counterProvider.counter}',
-              style: Theme.of(context).textTheme.headline4,
+            Consumer<Counter>(
+              builder: (context, counterProvider, child) => 
+              Text(
+                '${counterProvider.counter}',
+                style: Theme.of(context).textTheme.headline4,
+              ),
             ),
           ],
         ),

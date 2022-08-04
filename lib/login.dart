@@ -87,19 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      icon: Icon(Icons.person),
-                      hintText: 'Enter your age',
-                      labelText: 'Age',
-                    ),
-                    validator: (value) {
-                      if (value?.isEmpty ?? true) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
+                 
                   Container(
                     padding: EdgeInsets.only(left: 150.0, top: 40.0),
                     child: ElevatedButton(
